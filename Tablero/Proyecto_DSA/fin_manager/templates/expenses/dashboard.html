@@ -1,0 +1,909 @@
+{% extends "expenses/base2.html" %}
+
+{% load static %}
+{% load humanize %}
+{% block scrips_head %}
+
+
+
+<style>
+
+  form {
+    width: 100%;
+}
+
+
+.space-3 {
+    padding-top: 4rem;
+    padding-bottom: 0rem;
+ }
+
+.container.space-2-bottom.space-3-bottom--lg {
+    padding-bottom: 0px;
+}
+
+
+
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col, .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm, .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md, .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg, .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 3px;
+    padding-left: 3px;
+    margin-top: 3px;
+}
+
+
+
+@media (min-width: 992px)
+.col-lg-1 {
+    -ms-flex: 0 0 8.33333%;
+    /* flex: 0 0 155.33333%; */
+    max-width: 104px;
+}
+
+form.row.align-items-md-center {
+    width: 100%;
+}
+
+.card-body {
+    height: 300px;
+}
+
+.fd-navside {
+    padding-top: 0rem;
+     padding-bottom: 0rem;
+    margin: 0 0px 0rem;
+}
+
+.p-5 {
+    padding: 0.5rem !important;
+}
+
+.fd-toc {
+    position: sticky;
+    top: 3.5rem;
+    height: calc(100vh - 4.6rem);
+    padding-top: 1.0rem;
+    padding-bottom: 1.0rem;
+    overflow-y: auto;
+    order: 2;
+    font-size: .875rem;
+    height: 100%;
+}
+
+
+.fd-navside {
+    display: block !important;
+    max-height: calc(280vh - 4rem);
+    overflow-y: auto;
+}
+
+h6.h5.mb-3 {
+    margin-left: 35px;
+    padding-top: 10px;
+}
+
+.border.rounded.p-4 {
+    color: #646f79 !important
+}
+
+.border.rounded.p-4 {
+    padding: 0.3rem !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-sm-6.mb-4.mb-lg-0.card-frame {
+    max-width: 100%;
+    flex: 0 0 100%;
+}
+
+.mb-4, .my-4 {
+    margin-bottom: 0.5rem !important;
+}
+
+.space-1 {
+    padding-top: 0.2rem;
+    padding-bottom: 2rem;
+}
+
+.container {
+    width: 100%;
+    padding-right: 2px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e6f0;
+    border-radius: 0.25rem;
+    min-width: 200px;
+}
+
+.navbar-expand-lg .u-header__navbar-brand {
+    padding-top: 1rem;
+    padding-bottom: 0rem;
+    padding-right: 0rem;
+}
+</style>
+
+<style>
+  form {
+    width: 100%;
+}
+
+
+.space-3 {
+    padding-top: 4rem;
+    padding-bottom: 0rem;
+ }
+
+.container.space-2-bottom.space-3-bottom--lg {
+    padding-bottom: 0px;
+}
+
+
+
+
+
+
+
+@media (min-width: 992px)
+
+
+form.row.align-items-md-center {
+    width: 100%;
+}
+
+.card-body {
+    height: 300px;
+}
+
+.fd-navside {
+    padding-top: 0rem;
+     padding-bottom: 0rem;
+    margin: 0 0px 0rem;
+}
+
+.p-5 {
+    padding: 0.5rem !important;
+}
+
+.fd-toc {
+    position: sticky;
+    top: 3.5rem;
+    height: calc(100vh - 4.6rem);
+    padding-top: 1.0rem;
+    padding-bottom: 1.0rem;
+    overflow-y: auto;
+    order: 2;
+    font-size: .875rem;
+    height: 100%;
+}
+
+
+.fd-navside {
+    display: block !important;
+    max-height: calc(280vh - 4rem);
+    overflow-y: auto;
+}
+
+h6.h5.mb-3 {
+    margin-left: 35px;
+    padding-top: 10px;
+}
+
+.border.rounded.p-4 {
+    color: #646f79 !important
+}
+
+.border.rounded.p-4 {
+    padding: 0.3rem !important;
+}
+
+.p-4 {
+    padding: 1.5rem !important;
+}
+
+.navbar-expand-lg .u-header__navbar-brand {
+    padding-top: 1rem;
+    padding-bottom: 0.5rem;
+    padding-right: 0rem;
+}
+
+
+
+div#contenedor1 {
+   *** display: flex;***
+    justify-content: center;
+}
+
+div#h-tabContent {
+    margin: 60px;
+}
+
+.space-2-bottom.space-3-bottom--lg {
+    padding-right: 2rem;
+}
+
+.text-primary {
+    color: #a1a1a1 !important;
+}
+.card-collapse__btn-arrow {
+    color:  #a1a1a1;
+    }
+
+
+
+.custom-select {
+    font-size: 0.8rem;
+}
+.form-control {
+    font-size: 0.8rem;
+    }
+.text-warning {
+    color: #ffbc4269 !important;
+}
+button.btn.btn-secondary {
+    padding: 5px;
+}
+
+
+
+.fd-sidebar {
+
+  /*  top: 3rem; */
+}
+
+.space-2-bottom.space-3-bottom--lg {
+    padding-right: 0rem;
+}
+
+
+
+textarea{
+  overflow:hidden;
+  display:block;
+  height:auto;
+}
+
+canvas.bk-canvas {
+    /* max-width: 700px; */
+    max-height: 600px;
+    padding: 25px;
+
+
+}
+
+div#\32 3E41A33371D49B88C0D4C2083AA525C {
+    margin: auto;
+}
+
+.bk-plot-layout.bk-layout-fixed {
+    margin: auto;
+}
+
+.form-control {
+    color: #a0a6b1;
+    }
+
+
+ .fd-sidebar {
+
+    height: auto;
+    }
+
+
+    div#h-tabContent {
+    margin: 0px;
+}
+
+.space-3-bottom--lg {
+    padding-bottom: 0rem;
+}
+
+.space-2-bottom {
+    padding-bottom: 0rem;
+}
+</style>
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+{% endblock %}
+
+
+
+{% block content_links_logo %}
+ <h4 class="text-white" style="font-weight: 500; margin:auto; ">Predicción de tráfico y recaudo de los peajes de las vías concesionadas de
+Colombia-Grupo 18</h4>
+{% endblock %}
+
+
+{% block content_left %}
+</br>
+<div class="container space-2-bottom space-3-bottom--lg" style="font-size: small; margin: auto;text-align: center; height: 40px; background-color: #6c85ce2e;">
+
+    <h4>Realiza la predicción</h4>
+</div>
+</br>
+<div class="container space-2-bottom space-3-bottom--lg" style="font-size: small;">
+        <div class="container space-1">
+          <form method="POST"  enctype="multipart/form-data" id="test-form"  class="row align-items-md-center" novalidate="novalidate">
+            {% csrf_token %}
+
+            <!-- years -->
+
+            <div class="col-sm-6 mb-4 mb-lg-0 card-frame card-purple-frame" style="position: relative;width: 100%; padding-right: 3px; padding-left: 3px;margin-top: 3px;">
+            <p>Peaje</p>
+              <select  name="Colum1" id="Colum1" class="custom-select valid" aria-invalid="false" required data-msg="Por favor seleccione">
+                <option  value="1" ></option>
+
+                {% for Colum1_List in Colum1_List_views %}
+                {% if Colum1_List %}
+                <option value="{{Colum1_List}}">{{Colum1_List}}</option>
+                {% endif %}
+                {% endfor %}
+
+                {% if Colum1_Select %}
+                <option value="{{ Colum1_Select }}" selected>{{ Colum1_Select }}</option>
+                {% endif %}
+
+              </select>
+
+            </div>
+
+
+            <!-- End years -->
+            <!-- Drilling-->
+            <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0 card-frame card-purple-frame ">
+            <p>Categoría</p>
+              <select  name="Colum2" id="Colum2"  class="custom-select valid" aria-invalid="false"  required data-msg="Por favor seleccione">
+                <option  value="1" ></option>
+                {% for Colum2_List in Colum2_List_views %}
+
+                {% if Colum2_Select %}
+                {% if Colum2_List ==  Colum2_Select %}
+                <option value="{{Colum2_Select}}" selected>{{Colum2_Select}}</option>
+                {% else %}
+                <option value="{{ Colum2_List}}">{{ Colum2_List}}</option>
+                {% endif %}
+                {% else %}
+                <option value="{{ Colum2_List}}">{{Colum2_List}}</option>
+                {% endif %}
+
+                {% endfor %}
+
+                {% if Colum2_Select %}
+                <option value="{{Colum2_Select}}" selected>{{Colum2_Select}}</option>
+                {% endif %}
+
+              </select>
+            </div>
+            <!-- End Drilling -->
+
+           <!--  type of facilities-->
+            <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0 card-frame card-purple-frame">
+            <p>Fecha</p>
+                {% if Colum3_Select %}
+                <input name="Colum3" id="Colum3" class="form-control form__input"  type="date"   value="{{Colum3_Select}}" required data-msg="Por favor seleccione una fecha">
+                {% else %}
+                <input name="Colum3" class="custom-select valid"  class="form-control form__input" type="date"  value="" required data-msg="Por favor seleccione una fecha">
+
+                {% endif %}
+            </div>
+            <!-- End  type of facilities -->
+
+
+           <!--  Nombre Variables-->
+            <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0 card-frame card-purple-frame ">
+            <p>Valor tarifa</p>
+                  {% if Colum4_Select %}
+                 <input  name="Colum4" type="text" class="form-control form__input" placeholder="Ingrese un valor en $COP" aria-label="Valor" maxlength="15" value="{{ Colum4_Select|floatformat:2|intcomma }}"  required data-msg="Por favor ingrese un valor">
+                   {% else %}
+                 <input id="Colum4" name="Colum4" type="number" class="form-control form__input" placeholder="Ingrese un valor en $COP" aria-label="Valor" maxlength="15" required data-msg="Por favor ingrese un valor">
+                  {% endif %}
+            </div>
+            <!-- End  Nombre Variables -->
+
+           <!--  Nombre Variables-->
+            <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0 card-frame card-purple-frame ">
+            <p>Cantidad evasores</p>
+                  {% if Colum5_Select %}
+                 <input  name="Colum5" type="text" class="form-control form__input" placeholder="Valor" aria-label="Ingrese la cantidad" maxlength="15" value="{{ Colum5_Select|floatformat:2|intcomma }}" required data-msg="Por favor ingrese un valor">
+                   {% else %}
+                 <input id="Colum5" name="Colum5" type="number" class="form-control form__input" placeholder="Ingrese la cantidad" aria-label="Valor" maxlength="15" required data-msg="Por favor ingrese un valor">
+                  {% endif %}
+            </div>
+            <!-- End  Nombre Variables -->
+
+           <!--  Nombre Variables-->
+            <div class="col-sm-6 col-lg-2 mb-4 mb-lg-0 card-frame card-purple-frame ">
+            <p>Cantidad exentos</p>
+                  {% if Colum0_Select %}
+                 <input  name="Colum0" type="text" class="form-control form__input" placeholder="Ingrese la cantidad" aria-label="Valor" maxlength="15" value="{{ Colum0_Select|floatformat:2|intcomma }}" required data-msg="Por favor ingrese un valor">
+                   {% else %}
+                 <input id="Colum0" name="Colum0" type="number" class="form-control form__input" placeholder="Ingrese la cantidad" aria-label="Valor" maxlength="15" required data-msg="Por favor ingrese un valor">
+                  {% endif %}
+            </div>
+            <!-- End  Nombre Variables -->
+
+            <br/>
+            <div class="col-lg-6 text-lg-right">
+              <button type="submit" class="btn btn-block btn-outline-primary" >Ejecutar </button>
+            </div>
+
+            </form>
+            <!-- Nombre Input -->
+
+
+          <div class="container space-1" style=" margin-left: -9px; width:93%">
+          <div class="row align-items-md-center" novalidate="novalidate">
+
+            <div class="col-sm-6 mb-4 mb-lg-0 card-frame card-purple-frame">
+            <p>Predicción</p>
+              <!-- Department Search Field -->
+              <div id="form" class="js-focus-state input-group form">
+
+                  {% if Colum6_Select %}
+                 <input  name="Colum6_List" type="text" class="form-control form__input" placeholder="Valor" aria-label="Valor" maxlength="15" value="{{ Colum6_Select|floatformat:2|intcomma }}" required data-msg="Por favor ingrese un valor"/>
+                   {% else %}
+                 <input id="Colum6_List" name="Colum6_List" type="text" class="form-control form__input" placeholder="Valor" aria-label="Valor" maxlength="15" required data-msg="Por favor ingrese un valor"/>
+                  {% endif %}
+
+              </div>
+              <!-- End Department Search Field -->
+            </div>
+
+            <!-- End Input -->
+          </div>
+          </div>
+
+
+
+
+
+
+
+            {% if Colum6_Select %}
+            <a href="/dashboard1" style=" margin-left: -12px; width:93%"><input  value="Clear" class="btn btn-outline-primary text-lg-left" style="height: 52px; width: 80px; margin: 5px; "></a>
+            {% if unit %}
+            <!--<a href="#"><input  type="button" value=" + " class="btn btn-outline-success  text-lg-left" style="height: 52px; width: 52px; margin: 5px;" ></a>-->
+            {% endif %}
+
+            {% endif %}
+
+
+
+        </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block content_main %}
+<br>
+<div class="container space-2-bottom space-3-bottom--lg" style="font-size: small; margin: auto;text-align: center; height: 40px; background-color: #6c85ce2e;">
+
+    <h4> Explora los datos históricos de recaudo de tráfico </h4>
+</div>
+</br>
+<div class="container space-2-bottom space-3-bottom--lg" style="font-size: small;">
+        <div class="container space-1 " style="padding-bottom: 0rem;">
+          <!-- Job Positions - Filter -->
+          <form method="POST" enctype="multipart/form-data"   class="row align-items-md-center row" novalidate="novalidate">
+          {% csrf_token %}
+
+            <!-- years -->
+
+            <div class="col-sm-6 col-lg-2 mb-4 card-frame card-purple-frame " >
+            <p>Año</p>
+
+              <select name="Colum10" id="Colum10" class="custom-select valid" aria-invalid="false">
+
+                <option  value="Todos" >Todos</option>
+
+                {% for Colum1_List0 in Colum1_List_views0 %}
+                {% if Colum1_List0 %}
+                <option value="{{Colum1_List0}}">{{Colum1_List0}}</option>
+                {% endif %}
+                {% endfor %}
+
+                {% if Colum1_Select0 %}
+                <option value="{{ Colum1_Select0 }}" selected>{{ Colum1_Select0 }}</option>
+                {% endif %}
+
+
+              </select>
+
+            </div>
+
+
+            <!-- End years -->
+            <!-- Locations -->
+
+            <div  class="col-sm-6 col-lg-2 mb-4 card-frame card-purple-frame " >
+            <p>Mes</p>
+
+              <select name="Colum20"  id="Colum20" class="custom-select valid" aria-invalid="false" required  >
+                 <option  value="Todos" >Todos</option>
+
+                {% for Colum2_List0 in Colum2_List_views0 %}
+                <option value="{{Colum2_List0}}">{{Colum2_List0}}</option>
+                {% endfor %}
+
+                {% if Colum2_Select0 %}
+                <option value="{{ Colum2_Select0 }}" selected>{{ Colum2_Select0 }}</option>
+                {% endif %}
+
+
+              </select>
+
+            </div>
+
+             <!-- End Locations -->
+
+            <!-- Locations -->
+
+            <div class="col-sm-6 col-lg-2 mb-4 card-frame card-purple-frame ">
+            <p>Departamento</p>
+              <select name="Colum30" id="Colum30" class="custom-select valid" aria-invalid="false" >
+
+                <option  value="Todos" >Todos</option>
+
+                {% for Colum3_List0 in Colum3_List_views0 %}
+                <option value="{{Colum3_List0}}">{{Colum3_List0}}</option>
+                {% endfor %}
+
+                {% if Colum3_Select0 %}
+                <option value="{{ Colum3_Select0 }}" selected>{{ Colum3_Select0 }}</option>
+                {% endif %}
+
+              </select>
+
+            </div>
+
+            <!-- End Locations -->
+
+            <!-- Locations -->
+
+            <div class="col-sm-6 col-lg-2 mb-4 card-frame card-purple-frame">
+            <p>Municipio</p>
+              <select name="Colum40" id="Colum40"  class="custom-select valid" aria-invalid="false" required>
+
+
+                <option  value="Todos" >Todos</option>
+
+                  {% for Colum4_List0 in Colum4_List_views0 %}
+                  <option value="{{ Colum4_List0 }}" >{{ Colum4_List0 }}</option>
+                  {% endfor %}
+                 {% if Colum4_Select0 %}
+                 <option value="{{ Colum4_Select0 }}" selected>{{ Colum4_Select0 }}</option>
+                 {% endif %}
+
+              </select>
+
+            </div>
+
+            <!-- End Locations -->
+
+
+            <!-- Locations -->
+
+            <div class="col-sm-6 col-lg-2 mb-4 card-frame card-purple-frame">
+            <p>Categoria</p>
+              <select name="Colum50" id="Colum50"  class="custom-select valid" aria-invalid="false" required>
+
+
+                <option  value="Todos" >Todos</option>
+
+                {% for Colum5_List0 in Colum5_List_views0 %}
+                <option value="{{Colum5_List0}}">{{Colum5_List0}}</option>
+                {% endfor %}
+
+                {% if Colum5_Select0 %}
+                <option value="{{ Colum5_Select0 }}" selected>{{ Colum5_Select0 }}</option>
+                {% endif %}
+
+              </select>
+
+            </div>
+
+            <!-- End Locations -->
+
+            <!-- Locations -->
+
+            <div class="col-sm-6 col-lg-2 mb-4 card-frame card-purple-frame">
+            <p>Peaje</p>
+              <select name="Colum60" id="Colum60"  class="custom-select valid" aria-invalid="false" required>
+
+
+                <option  value="Todos" >Todos</option>
+
+                {% for Colum6_List0 in Colum6_List_views0 %}
+                <option value="{{Colum6_List0}}">{{Colum6_List0}}</option>
+                {% endfor %}
+
+                {% if Colum6_Select0 %}
+                <option value="{{ Colum6_Select0 }}" selected>{{ Colum6_Select0 }}</option>
+                {% endif %}
+
+              </select>
+
+            </div>
+
+            <!-- End Locations -->
+
+
+
+
+
+
+
+            <div class="col-lg-2 text-lg-right">
+            <a> <button type="submit" class="btn btn-block btn-outline-primary" style="font-size: small;" >Filtrar</button></a>
+            </div>
+
+
+            <div class="field" style="">
+
+            <a href="/dashboard1"><input  value="Borrar" class="btn btn-block btn-outline-primary" style="width:100px; font-size: small;" ></a>
+
+            </div>
+
+          </form>
+          <!-- End Job Positions - Filter -->
+        </div>
+</div>
+
+
+
+<!--------------------------------------------------------------------------------------------------------------------->
+<!--------------------------------inicio----Contenido herramientas----------------------------------------------------->
+<!--------------------------------------------------------------------------------------------------------------------->
+
+  <div class="row">
+
+
+        <div class=" col-sm-12 col-lg-12 mb-12 card-frame card-purple-frame  " style="max-width: 50%;" >
+           <div class="graph">
+            <div class="bar-chart">
+              <div class="plotly-chart" id="plotly-chart"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-12 mb-12 card-frame card-purple-frame " style="max-width: 50%;">
+        <div class="graph">
+        <div class="bar-chart">
+          <div class="plotly2-chart" id="plotly2-chart"></div>
+        </div>
+         </div>
+        </div>
+
+        <div class="col-sm-12 col-lg-12 mb-12 card-frame card-purple-frame  " style="max-width: 100%;">
+        <div class="graph">
+        <div class="bar-chart">
+          <div class="plotly3-chart" id="plotly3-chart"></div>
+        </div>
+         </div>
+        </div>
+
+<!--</div>-->
+</div>
+
+
+
+
+{% endblock %}
+
+
+
+{% block scripts_body %}
+
+  <script>
+    // Initialize the Plotly chart
+    var graphData = {{ graph_data| safe }};
+    Plotly.newPlot('plotly-chart', graphData.data, graphData.layout);
+  </script>
+  <script>
+    // Initialize the Plotly chart
+    var graph2Data = {{ graph2_data| safe }};
+    Plotly.newPlot('plotly2-chart', graph2Data.data, graph2Data.layout);
+  </script>
+  <script>
+    // Initialize the Plotly chart
+    var graph3Data = {{ graph3_data| safe }};
+    Plotly.newPlot('plotly3-chart', graph3Data.data, graph3Data.layout);
+  </script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+ <script>
+      //var $ =jQuery.noConflict();
+    $("#Colum50, #Colum40, #Colum30, #Colum20, #Colum10").change(function () {
+        const url = ""  // get the url of the `load_cities` view
+        const Colum50 = $("#Colum50").val();
+        const Colum40 = $("#Colum40").val();
+        const Colum30 = $("#Colum30").val(); // get the selected country ID from the HTML input
+        const Colum20 = $("#Colum20").val();
+        const Colum10 = $("#Colum10").val();
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'Colum50': Colum50,
+                'Colum40': Colum40,
+                'Colum30': Colum30,       // add the country id to the GET parameters
+                'Colum20': Colum20,
+                'Colum10': Colum10,
+            },
+            datatype:"json",
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+               //$("#Colum5").html(data);   replace the contents of the city input with the data that came from the server
+               var $Nzon = $("#Colum60");
+               $Nzon.empty(); // remove old options
+               $Nzon.append($("<option></option>").attr("value", '').text(''));
+               $.each(data, function(i, value ) {
+               i= value
+               $Nzon.append($("<option></option>").attr("value", i).text(value));
+               });
+                    console.log(data); // imprimir datos en consola
+            }
+        });
+
+    });
+
+</script>
+ <script>
+      //var $ =jQuery.noConflict();
+    $("#Colum40, #Colum30, #Colum20, #Colum10").change(function () {
+        const url = ""  // get the url of the `load_cities` view
+        const Colum40 = $("#Colum40").val();
+        const Colum30 = $("#Colum30").val(); // get the selected country ID from the HTML input
+        const Colum20 = $("#Colum20").val();
+        const Colum10 = $("#Colum10").val();
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'Colum40': Colum40,
+                'Colum30': Colum30,       // add the country id to the GET parameters
+                'Colum20': Colum20,
+                'Colum10': Colum10,
+            },
+            datatype:"json",
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+               //$("#Colum5").html(data);   replace the contents of the city input with the data that came from the server
+               var $Nzon = $("#Colum50");
+               $Nzon.empty(); // remove old options
+               $Nzon.append($("<option></option>").attr("value", '').text(''));
+               $.each(data, function(i, value ) {
+               i= value
+               $Nzon.append($("<option></option>").attr("value", i).text(value));
+               });
+                    console.log(data); // imprimir datos en consola
+            }
+        });
+
+    });
+
+</script>
+ <script>
+      //var $ =jQuery.noConflict();
+    $("#Colum30, #Colum20, #Colum10").change(function () {
+        const url = ""  // get the url of the `load_cities` view
+        const Colum30 = $("#Colum30").val(); // get the selected country ID from the HTML input
+        const Colum20 = $("#Colum20").val();
+        const Colum10 = $("#Colum10").val();
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'Colum30': Colum30,       // add the country id to the GET parameters
+                'Colum20': Colum20,
+                'Colum10': Colum10,
+            },
+            datatype:"json",
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+               //$("#Colum4").html(data);   replace the contents of the city input with the data that came from the server
+               var $Nvar = $("#Colum40");
+               $Nvar.empty(); // remove old options
+               $Nvar.append($("<option></option>").attr("value", '').text(''));
+               $.each(data, function(i, value ) {
+               i= value
+               $Nvar.append($("<option></option>").attr("value", i).text(value));
+               });
+                    console.log(data); // imprimir datos en consola
+            }
+        });
+
+    });
+
+</script>
+ <script>
+      //var $ =jQuery.noConflict();
+    $("#Colum20, #Colum10").change(function () {
+        const url = ""  // get the url of the `load_cities` view
+        const Colum20 = $("#Colum20").val();
+        const Colum10 = $("#Colum10").val();
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'Colum20': Colum20,      // add the country id to the GET parameters
+                'Colum10': Colum10,
+            },
+            datatype:"json",
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+               //$("#Colum3").html(data);   replace the contents of the city input with the data that came from the server
+               // variables a remover
+               var $nfac = $("#Colum30");
+               $nfac.empty(); // remove old options
+               $nfac.append($("<option></option>").attr("value", '').text(''));
+               $.each(data, function(i, value ) {
+               i= value
+               $nfac.append($("<option></option>").attr("value", i).text(value));
+               });
+                    console.log(data); // imprimir datos en consola
+            }
+        });
+
+    });
+
+</script>
+<script>
+      //var $ =jQuery.noConflict();
+    $("#Colum10").change(function () {
+        const url = ""  // get the url of the `load_cities` view
+        const Colum10 = $("#Colum10").val();
+
+        $.ajax({                       // initialize an AJAX request
+            url: url,                    // set the url of the request (= /persons/ajax/load-cities/ )
+            data: {
+                'Colum10': Colum10,      // add the country id to the GET parameters
+            },
+            datatype:"json",
+            success: function (data) {   // `data` is the return of the `load_cities` view function
+               //$("#Colum2-").html(data);   replace the contents of the city input with the data that came from the server
+               // variables a remover
+               var $nom_fac_dril = $("#Colum20");
+               $nom_fac_dril.empty(); // remove old options
+               $nom_fac_dril.append($("<option></option>").attr("value", '').text(''));
+               $.each(data, function(i, value ) {
+               i= value
+               $nom_fac_dril.append($("<option></option>").attr("value", i).text(value));
+               });
+                    console.log(data); // imprimir datos en consola
+            }
+        });
+
+    });
+</script>
+
+
+{% endblock %}

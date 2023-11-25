@@ -1,0 +1,21 @@
+from django.db import models
+
+class Peajes(models.Model):
+    id = models.IntegerField(primary_key=True)
+    idpeaje = models.FloatField(null=True)
+    peaje = models.CharField(max_length=500, null=True)
+    categoriatarifa = models.FloatField(null=True)
+    desde = models.CharField(max_length=500, null=True)
+    hasta = models.CharField(max_length=500, null=True)
+    valortarifa =  models.FloatField(null=True)
+    cantidadtrafico=  models.FloatField(null=True)
+    cantidadevasores=  models.FloatField(null=True)
+    cantidadexentos787=  models.FloatField(null=True)
+    anio = models.IntegerField(null=True)
+    mes = models.IntegerField(null=True)
+    aniomes = models.CharField(max_length=500, null=True)
+    recaudo = models.FloatField(null=True)
+    departamento= models.CharField(max_length=500, null=True, blank=True)
+    municipio= models.CharField(max_length=500, null=True, blank=True)
+    longitud= models.FloatField(null=True)
+    latitud= models.FloatField(null=True)

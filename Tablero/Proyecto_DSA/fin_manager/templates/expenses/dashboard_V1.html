@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+
+<h1> Dashboard</h1>
+
+
+      <div class="graph">
+        <div class="bar-chart">
+
+          <div class="plotly-chart" id="plotly-chart"></div>
+        </div>
+      </div>
+
+      <div class="graph">
+        <div class="bar-chart">
+
+          <div class="plotly2-chart" id="plotly2-chart"></div>
+        </div>
+      </div>
+
+  <script>
+    // Initialize the Plotly chart
+    var graphData = {{ graph_data| safe }};
+    Plotly.newPlot('plotly-chart', graphData.data, graphData.layout);
+  </script>
+  <script>
+    // Initialize the Plotly chart
+    var graph2Data = {{ graph2_data| safe }};
+    Plotly.newPlot('plotly2-chart', graph2Data.data, graph2Data.layout);
+  </script>
+
+</body>
+</html>
